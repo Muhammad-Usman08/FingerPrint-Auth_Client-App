@@ -13,7 +13,7 @@ class DisplayImageScreen extends StatefulWidget {
 class _DisplayImageScreenState extends State<DisplayImageScreen> {
   String? base64String;
   bool isLoading = false;
-  File? imageFile;  // To store the captured image
+  File? imageFile;
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())  // Show loading while processing
+          ? Center(child: CircularProgressIndicator()) 
           : SingleChildScrollView(
               child: Center(
                 child: Padding(
@@ -51,7 +51,6 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Button to trigger camera view
                       Center(
                         child: ElevatedButton(
                           onPressed: () async {
@@ -86,7 +85,6 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
                           ),
                         ),
                       const SizedBox(height: 40),
-                      // Show the Base64 Code
                       const Text('Base 64 Code:',
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                       const SizedBox(height: 10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/views/camera/display_image_view.dart';
+import 'package:my_app/views/companies/companies_view.dart';
 import 'package:my_app/views/qr_code/qr_code_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -38,7 +39,7 @@ class HomeView extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QrCodeView(),
+                    builder: (context) => CompaniesView(),
                   ),
                 );
               },
