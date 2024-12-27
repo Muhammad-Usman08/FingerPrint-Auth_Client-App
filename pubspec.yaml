@@ -40,7 +40,8 @@ dependencies:
   url_launcher: ^6.3.1
   qr_code_scanner: ^1.0.1
   flutter_barcode_scanner: ^2.0.0
-
+  biopassid_fingerprint_sdk: ^2.1.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

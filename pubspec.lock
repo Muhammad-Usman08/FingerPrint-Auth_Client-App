@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  biopassid_fingerprint_sdk:
+    dependency: "direct main"
+    description:
+      name: biopassid_fingerprint_sdk
+      sha256: "969fa0b38f82e2bc24d1c7230eda354f403f1b59d79156f8c5555b73d69dc2cf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   boolean_selector:
     dependency: transitive
     description:

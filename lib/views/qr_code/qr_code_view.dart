@@ -3,7 +3,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class BarcodeView extends StatefulWidget {
   final String companyName;
-  final int barcodeLength; // The length of the barcode to capture
+  final int barcodeLength;
 
   const BarcodeView(
       {super.key, required this.companyName, required this.barcodeLength});
@@ -39,40 +39,55 @@ class _BarcodeViewState extends State<BarcodeView> {
                     if (barcode.isNotEmpty) {
                       if (widget.companyName == 'MPEC') {
                         if (barcode.length > 8) {
-                          // Skip first 8 characters and take next 18 characters
                           result = barcode.length >= 26
                               ? barcode.substring(8, 26)
                               : barcode.substring(8);
                         } else {
                           result = barcode;
                         }
-                      } else if (widget.companyName == 'Peshawat electric supply company') {
+                      } else if (widget.companyName == 'Peshawar electric supply company') {
                         if (barcode.length > 8) {
-                          // Skip first 8 characters and take next 16 characters
+                          result = barcode.length >= 26
+                              ? barcode.substring(8, 26)+ ' U'
+                              : barcode.substring(8) + ' U';
+                        } else {
+                          result = barcode + ' U';
+                        }
+                      } else if (widget.companyName == 'SUI Northen Gas Pipelines') {
+                        if (barcode.length > 8) {
                           result = barcode.length >= 24
-                              ? barcode.substring(8, 24)
+                              ? barcode.substring(5, 16)
+                              : barcode.substring(5);
+                        } else {
+                          result = barcode;
+                        }
+                      } else if (widget.companyName == 'K-Electric') {
+                        if (barcode.length > 8) {
+                          result = barcode.length >= 24
+                              ? barcode.substring(5, 16)
+                              : barcode.substring(5);
+                        } else {
+                          result = barcode;
+                        }
+                      } else if (widget.companyName == 'LESCO') {
+                        if (barcode.length > 8) {
+                          result = barcode.length >= 26
+                              ? barcode.substring(8, 26)
                               : barcode.substring(8);
                         } else {
                           result = barcode;
                         }
-                      } else if (widget.companyName == 'SUI Northen Gas Pipelines') {
+                      } else if (widget.companyName == 'Faisalabad electric supply company' ||
+                          widget.companyName == 'Quetta electric supply company' ||
+                          widget.companyName == 'Sukkur electric power company' ||
+                          widget.companyName == 'Hyderabad electric supply company' ||
+                          widget.companyName == 'gujranwala electric power company') {
                         if (barcode.length > 8) {
-                          // Skip first 8 characters and take next 16 characters
                           result = barcode.length >= 24
-                              ? barcode.substring(5, 16)
-                              : barcode.substring(5);
+                              ? barcode.substring(8, 26) + ' U'
+                              : barcode.substring(8) + ' U';
                         } else {
-                          result = barcode;
-                        }
-                      }
-                      else if (widget.companyName == 'K-Electric') {
-                        if (barcode.length > 8) {
-                          // Skip first 8 characters and take next 16 characters
-                          result = barcode.length >= 24
-                              ? barcode.substring(5, 16)
-                              : barcode.substring(5);
-                        } else {
-                          result = barcode;
+                          result = barcode + ' U';
                         }
                       }
                     }
