@@ -41,6 +41,9 @@ dependencies:
   qr_code_scanner: ^1.0.1
   flutter_barcode_scanner: ^2.0.0
   biopassid_fingerprint_sdk: ^2.1.1
+  archive: ^4.0.2
+  base85: ^1.0.4
+  crypto: ^3.0.6
   
 dev_dependencies:
   flutter_test:
