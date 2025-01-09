@@ -1,7 +1,6 @@
 import 'dart:typed_data';
-import 'dart:convert';
-import 'package:crypto/crypto.dart'; // For hashing
-import 'package:archive/archive.dart'; // For GZIP compression
+import 'package:crypto/crypto.dart'; 
+import 'package:archive/archive.dart';
 import 'package:biopassid_fingerprint_sdk/biopassid_fingerprint_sdk.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +25,7 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
       config: config,
       onFingerCapture: (images, error) async {
         setState(() {
-          isLoading = false; // Stop loader after capture
+          isLoading = false;
         });
 
         if (error != null) {
@@ -35,7 +34,6 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
           });
         } else {
           try {
-            // Convert the first image into a hash
             final hash = await _convertToHash(images[0]);
             setState(() {
               result = "Fingerprint captured: $hash";
@@ -52,25 +50,21 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
     );
   }
 
-  /// Compress the fingerprint data using GZIP and generate a hash
   Future<String> _convertToHash(Uint8List image) async {
     try {
-      // Compress the image data
       final compressedData = GZipEncoder().encode(image);
       if (compressedData == null) throw Exception("Compression failed");
 
-      // Generate a hash of the compressed data
       final hash = sha256.convert(Uint8List.fromList(compressedData));
-      return hash.toString(); // Return hash as a hexadecimal string
+      return hash.toString(); 
     } catch (e) {
       throw Exception("Error during conversion: $e");
     }
   }
 
-  /// Trigger fingerprint capture
   void takeFingerprint() async {
     setState(() {
-      isLoading = true; // Start loader before capture
+      isLoading = true; 
     });
     await controller.takeFingerprint();
   }
@@ -85,7 +79,7 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
       ),
       body: Center(
         child: isLoading
-            ? const CircularProgressIndicator() // Show loader during scanning
+            ? const CircularProgressIndicator() 
             : SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
